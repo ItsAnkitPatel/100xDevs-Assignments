@@ -10,5 +10,18 @@ There is no automated test for this one, this is more for you to understand time
 
 function calculateTime(n) {
     
-    return 0.01;
+function calculateTime(n) {
+    let sum =0;
+    const start= new Date().getSeconds();
+    console.log('Start ',start);
+    for(let i=1; i<=n; i++){
+        sum += i;
+    }
+    const end = new Date().getSeconds()
+    console.log('End ',end);
+    console.log(`It takes ${end - start}seconds`);
+}
+// // calculateTime(100)
+// calculateTime(100000)
+calculateTime(1000000000)
 }
