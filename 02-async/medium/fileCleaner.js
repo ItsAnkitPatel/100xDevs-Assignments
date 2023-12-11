@@ -17,14 +17,15 @@ const fs = require("fs");
 const path = "./file_cleaner.txt";
 fs.readFile(path, "utf-8", (err, data) => {
   const cleanString = data.replace(/\s+/g, " ");
-  if (err === null) {
-    console.log("null found");
+  if (err) {
+    console.log(`Got an error ${err}`);
+  } else {
+    fs.writeFile(path, cleanString, (err) => {
+      if (!err) {
+        console.log("Operation is done successfully");
+      } else {
+        console.log(`Got an error ${err}`);
+      }
+    });
   }
-  fs.writeFile(path, cleanString, (err) => {
-    if (!err) {
-      console.log("Operation is done successfully");
-    } else {
-      console.log(`Got an error ${err}`);
-    }
-  });
 });
