@@ -4,7 +4,7 @@
 
 function wait(n) {
     const ans = new Promise(function(resolve){
-        setTimeout(resolve,n)
+        setTimeout(resolve,n*1000)
     })
     return ans;
 }

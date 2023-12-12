@@ -9,7 +9,7 @@ function wait1(t) {
   return new Promise(function (resolve) {
     setTimeout(() => {
       resolve(t);
-    }, t);
+    }, 1000*t);
   });
 }
 
@@ -17,7 +17,7 @@ function wait2(t) {
   return new Promise(function (resolve) {
     setTimeout(() => {
       resolve(t);
-    }, t);
+    }, 1000*t);
   });
 }
 
@@ -25,7 +25,7 @@ function wait3(t) {
   return new Promise(function (resolve) {
     setTimeout(() => {
       resolve(t);
-    }, t);
+    }, 1000*t);
   });
 }
 
