@@ -123,7 +123,7 @@ app.put("/todos/:id", (req, res) => {
   fs.readFile("./todos.json", "utf-8", (err, data) => {
     const todoArr = JSON.parse(data || "[]");
     if (todoArr.length === 0) {
-      return res.status(200).json(`ID DOESN'T EXISTS`);
+      return res.status(404).json(`ID DOESN'T EXISTS`);
     }
     let result;
     let position;
@@ -136,7 +136,7 @@ app.put("/todos/:id", (req, res) => {
     }
     if (result) {
       console.log(req.body);
-      todoArr[position].body.completed = req.body.completed;
+      // todoArr[position].body.completed = req.body.completed;
       todoArr[position].body.description = req.body.description;
       console.log(todoArr);
       fs.writeFile("./todos.json", JSON.stringify(todoArr), (err) => {
@@ -154,7 +154,7 @@ app.delete("/todos/:id", (req, res) => {
     const todoArr = JSON.parse(data || "[]");
     if (todoArr.length === 0) {
       return res
-        .status(200)
+        .status(404)
         .json("Cannot delete anything because todo list is empty");
     }
     for (let i = 0; i < todoArr.length; i++) {
@@ -174,5 +174,5 @@ app.use((req, res) => {
   res.status(404).json('ROUTE NOT FOUND');
 });
 
-app.listen(3000);
+// app.listen(3000);
 module.exports = app;
